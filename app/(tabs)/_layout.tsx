@@ -1,12 +1,12 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
-import { Feather,Ionicons } from '@expo/vector-icons';
 import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { Feather, Ionicons } from '@expo/vector-icons';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { Tabs } from 'expo-router';
+import React from 'react';
+import { Platform } from 'react-native';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -31,23 +31,23 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ color }) => <Feather name="home" size={28} color={color} />,
         }}
       />
       <Tabs.Screen
-  name="generation"
-  options={{
-    title: 'Generation',
-    tabBarIcon: ({ color }) => <Feather name="zap" size={24} color={color} />,
-  }}
-/>
+        name="generate"
+        options={{
+          title: 'Generate',
+          tabBarIcon: ({ color }) => <FontAwesome name="gears" size={24} color={color} />,
+        }}
+      />
       <Tabs.Screen
-  name="visualisation"
-  options={{
-    title: 'Visualisation',
-    tabBarIcon: ({ color }) => <Ionicons name="eye" size={24} color={color} />,
-  }}
-/>
+        name="visualize"
+        options={{
+          title: 'Visualize',
+          tabBarIcon: ({ color }) => <Ionicons name="eye" size={24} color={color} />,
+        }}
+      />
     </Tabs>
   );
 }
